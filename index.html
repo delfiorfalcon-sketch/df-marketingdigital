@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="D.F. Marketing Digital — ecossistemas digitais, tráfego, SEO, automação e funis para negócios locais.">
+  <meta name="theme-color" content="#050507">
+  <title>D.F. Marketing Digital — Ecossistemas Digitais</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root{
+      --bg:#050507;
+      --bg-2:#0b0b0f;
+      --panel:#101015;
+      --panel-2:#15151b;
+      --text:#f4f4f5;
+      --muted:#9b9ba6;
+      --line:rgba(255,255,255,.10);
+      --line-strong:rgba(255,255,255,.18);
+      --white:#fff;
+      --accent:#a855f7;
+      --accent-2:#22d3ee;
+      --accent-3:#ff4fd8;
+      --max:1180px;
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:
+        radial-gradient(circle at 78% 5%, rgba(168,85,247,.13), transparent 27rem),
+        radial-gradient(circle at 15% 30%, rgba(34,211,238,.07), transparent 24rem),
+        var(--bg);
+      color:var(--text);
+      font-family:"DM Sans",Arial,sans-serif;
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none; z-index:-1;
+      opacity:.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size:60px 60px;
+      mask-image:linear-gradient(to bottom,black,transparent 80%);
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    /* Header */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      background:rgba(5,5,7,.72);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .nav{
+      height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.03em}
+    .brand-mark{
+      width:34px;height:34px;border:1px solid rgba(255,255,255,.35);
+      border-radius:10px;display:grid;place-items:center;
+      font-family:"Space Grotesk";font-weight:700;
+      background:linear-gradient(135deg,#111,#050505);
+      box-shadow:0 0 28px rgba(168,85,247,.12);
+    }
+    .brand span:last-child{font-size:14px}
+    .nav-links{display:flex;align-items:center;gap:30px;color:#bcbcc5;font-size:13px}
+    .nav-links a:hover{color:#fff}
+    .nav-cta,.btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      border:1px solid rgba(255,255,255,.18);border-radius:999px;
+      padding:12px 18px;font-size:13px;font-weight:600;
+      background:#f5f5f5;color:#09090b;transition:.25s;
+    }
+    .nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(255,255,255,.12)}
+    .menu-btn{display:none;background:none;border:0;color:white;font-size:24px}
+
+    /* Hero */
+    .hero{min-height:100vh;display:grid;align-items:center;padding:145px 0 80px;position:relative}
+    .hero:after{
+      content:"";position:absolute;right:-20%;top:10%;width:560px;height:560px;
+      border-radius:50%;border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 0 0 70px rgba(255,255,255,.012),0 0 0 140px rgba(255,255,255,.008);
+      pointer-events:none;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid var(--line);background:rgba(255,255,255,.035);
+      padding:8px 12px;border-radius:999px;font-size:11px;color:#c8c8d0;
+      margin-bottom:24px;
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 14px var(--accent)}
+    h1{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(48px,7vw,88px);line-height:.96;letter-spacing:-.065em;
+      max-width:850px;
+    }
+    .gradient-text{
+      background:linear-gradient(90deg,#fff 0%,#c7c7cf 45%,#a855f7 72%,#22d3ee 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero-copy{max-width:650px;color:#aaaab4;font-size:17px;margin:26px 0 32px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn.primary{background:#fff;color:#09090b}
+    .btn.secondary{background:rgba(255,255,255,.04);color:#fff}
+    .hero-note{margin-top:18px;color:#70707a;font-size:11px}
+
+    .hero-visual{position:relative;min-height:520px;display:grid;place-items:center}
+    .orb{
+      position:absolute;width:410px;height:410px;border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 25%,rgba(255,255,255,.28),transparent 13%),
+        radial-gradient(circle at 60% 65%,rgba(168,85,247,.42),transparent 30%),
+        radial-gradient(circle at 35% 70%,rgba(34,211,238,.28),transparent 28%),
+        #09090d;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:
+        inset 0 0 60px rgba(255,255,255,.06),
+        0 0 90px rgba(168,85,247,.15);
+      filter:saturate(1.15);
+    }
+    .orb:before,.orb:after{
+      content:"";position:absolute;inset:28px;border:1px solid rgba(255,255,255,.11);border-radius:50%;
+    }
+    .orb:after{inset:75px;border-color:rgba(255,255,255,.07)}
+    .logo-card{
+      position:relative;z-index:2;width:min(420px,90%);
+      border-radius:28px;overflow:hidden;
+      background:rgba(5,5,7,.74);border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 35px 90px rgba(0,0,0,.6),0 0 60px rgba(168,85,247,.10);
+      transform:rotate(-2deg);
+    }
+    .logo-card img{width:100%;height:auto;opacity:.97}
+    .logo-label{
+      position:absolute;bottom:14px;left:14px;right:14px;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:10px 12px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.58);backdrop-filter:blur(10px);
+      border-radius:13px;font-size:10px;color:#d4d4d8;
+    }
+
+    /* Sections */
+    section{padding:115px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
+    .kicker{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:#888894;margin-bottom:12px}
+    h2{font-family:"Space Grotesk";font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-.05em}
+    .section-intro{max-width:430px;color:#8e8e99;font-size:14px}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .service{
+      min-height:245px;padding:26px;border:1px solid var(--line);border-radius:22px;
+      background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+      position:relative;overflow:hidden;transition:.3s;
+    }
+    .service:before{
+      content:"";position:absolute;width:170px;height:170px;right:-80px;top:-80px;
+      border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.18),transparent 65%);
+    }
+    .service:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.2)}
+    .service-num{font-family:"Space Grotesk";font-size:12px;color:#686873}
+    .service h3{font-family:"Space Grotesk";font-size:23px;margin:60px 0 10px;letter-spacing:-.04em}
+    .service p{color:#858591;font-size:13px;max-width:340px}
+
+    /* Ecosystem */
+    .ecosystem{
+      display:grid;grid-template-columns:1fr 1fr;gap:12px;
+    }
+    .eco-main,.eco-side{
+      border:1px solid var(--line);border-radius:28px;background:var(--panel);overflow:hidden;
+    }
+    .eco-main{min-height:500px;padding:38px;position:relative}
+    .eco-main h3{font-family:"Space Grotesk";font-size:38px;letter-spacing:-.05em;max-width:480px}
+    .eco-main p{color:#898993;margin-top:14px;max-width:500px}
+    .diagram{position:absolute;left:50%;bottom:-80px;transform:translateX(-50%);width:430px;height:280px}
+    .ring{position:absolute;border:1px solid rgba(255,255,255,.13);border-radius:50%;inset:0}
+    .ring.r2{inset:45px}.ring.r3{inset:95px}
+    .node{position:absolute;padding:9px 12px;border:1px solid rgba(255,255,255,.16);background:#0c0c11;border-radius:999px;font-size:10px;color:#cfcfd5}
+    .n1{left:0;top:50%}.n2{right:0;top:28%}.n3{right:15%;bottom:0}.n4{left:27%;bottom:2%}
+    .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff 0%,#aaa 8%,#111 38%);box-shadow:0 0 50px rgba(255,255,255,.15);font-size:10px;font-weight:700}
+    .eco-side{display:grid;grid-template-rows:1fr 1fr}
+    .eco-item{padding:30px;border-bottom:1px solid var(--line)}
+    .eco-item:last-child{border-bottom:0}
+    .eco-item span{font-size:11px;color:#70707b}
+    .eco-item h4{font-family:"Space Grotesk";font-size:25px;margin:18px 0 7px}
+    .eco-item p{font-size:13px;color:#858591}
+
+    /* Results */
+    .results-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+    .result-large,.metric{
+      border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#101014,#09090c);overflow:hidden;
+    }
+    .result-large{padding:35px;min-height:430px;position:relative}
+    .result-large h3{font-family:"Space Grotesk";font-size:40px;letter-spacing:-.05em;max-width:550px}
+    .result-large p{color:#858591;max-width:500px;margin-top:15px}
+    .graph{position:absolute;left:35px;right:35px;bottom:30px;height:140px;border-bottom:1px solid rgba(255,255,255,.12);overflow:hidden}
+    .graph:before{
+      content:"";position:absolute;left:0;right:0;bottom:18px;height:2px;
+      background:linear-gradient(90deg,transparent 0%,#fff 20%,#a855f7 52%,#22d3ee 78%,transparent 100%);
+      transform:skewY(-8deg);box-shadow:0 0 20px rgba(168,85,247,.5);
+    }
+    .graph:after{
+      content:"";position:absolute;left:0;right:0;bottom:0;height:100%;
+      background:repeating-linear-gradient(to top,rgba(255,255,255,.05) 0 1px,transparent 1px 34px);
+    }
+    .metric-col{display:grid;grid-template-rows:1fr 1fr;gap:12px}
+    .metric{padding:30px;display:flex;flex-direction:column;justify-content:space-between}
+    .metric small{color:#777782;text-transform:uppercase;letter-spacing:.14em;font-size:10px}
+    .metric strong{font-family:"Space Grotesk";font-size:52px;letter-spacing:-.06em}
+    .metric p{color:#858591;font-size:12px}
+
+    /* Process */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .step{padding:30px 22px;min-height:220px;border-right:1px solid var(--line)}
+    .step:last-child{border-right:0}
+    .step-num{font-size:11px;color:#666671}
+    .step h3{font-family:"Space Grotesk";font-size:23px;margin:45px 0 8px}
+    .step p{font-size:12px;color:#858591}
+
+    /* CTA */
+    .cta{
+      padding:70px 55px;border:1px solid rgba(255,255,255,.13);border-radius:30px;
+      background:
+        radial-gradient(circle at 80% 20%,rgba(168,85,247,.20),transparent 28%),
+        radial-gradient(circle at 15% 80%,rgba(34,211,238,.12),transparent 25%),
+        #0b0b0f;
+      display:flex;align-items:end;justify-content:space-between;gap:30px;
+    }
+    .cta h2{max-width:700px}
+    .cta p{color:#858591;max-width:620px;margin-top:15px}
+
+    footer{border-top:1px solid var(--line);padding:35px 0 50px;color:#70707b;font-size:11px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px}
+    .footer-links{display:flex;gap:20px}
+    .footer-links a:hover{color:#fff}
+
+    /* Mobile */
+    @media(max-width:900px){
+      .nav-links,.nav-cta{display:none}
+      .menu-btn{display:block}
+      .hero-grid,.ecosystem,.results-grid{grid-template-columns:1fr}
+      .hero{padding-top:125px}
+      .hero-visual{min-height:430px}
+      .orb{width:330px;height:330px}
+      .services{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .step:nth-child(2){border-right:0}
+      .step:nth-child(3),.step:nth-child(4){border-top:1px solid var(--line)}
+      .step:nth-child(4){border-right:0}
+      .cta{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:600px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      section{padding:85px 0}
+      .nav{height:68px}
+      h1{font-size:52px}
+      .hero-copy{font-size:15px}
+      .hero-visual{min-height:360px}
+      .logo-card{width:330px}
+      .orb{width:290px;height:290px}
+      .services,.steps{grid-template-columns:1fr}
+      .step{border-right:0!important;border-bottom:1px solid var(--line)}
+      .step:last-child{border-bottom:0}
+      .section-head{display:block}
+      .section-intro{margin-top:18px}
+      .eco-main{min-height:520px;padding:28px}
+      .diagram{width:330px;bottom:-45px}
+      .cta{padding:38px 25px}
+      .footer-row{flex-direction:column}
+      .footer-links{flex-wrap:wrap}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="D.F. Marketing Digital">
+        <span class="brand-mark">DF</span>
+        <span>D.F. MARKETING DIGITAL</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação">
+        <a href="#servicos">Serviços</a>
+        <a href="#ecossistema">Ecossistema</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#processo">Processo</a>
+      </nav>
+
+      <a class="nav-cta" href="https://wa.me/5521999664090" target="_blank" rel="noopener">Falar com a D.F. ↗</a>
+      <button class="menu-btn" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> MARKETING DIGITAL PARA NEGÓCIOS LOCAIS</div>
+          <h1>Seu negócio não precisa de mais <span class="gradient-text">posts.</span><br>Precisa de um ecossistema.</h1>
+          <p class="hero-copy">
+            A D.F. conecta presença digital, tráfego, dados, automação e vendas em uma estrutura pensada para transformar atenção em oportunidades reais.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contato">Construir meu ecossistema ↗</a>
+            <a class="btn secondary" href="#servicos">Explorar soluções</a>
+          </div>
+          <div class="hero-note">Estratégia • Aquisição • Conversão • Relacionamento</div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="orb"></div>
+          <div class="logo-card">
+            <img src="df-logo.jpg" alt="Logo cromada D.F. Marketing Digital">
+            <div class="logo-label">
+              <span>D.F. DIGITAL</span>
+              <span>ECOSSISTEMAS ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">01 / Soluções</div>
+            <h2>Do clique ao cliente.</h2>
+          </div>
+          <p class="section-intro">Estruturamos os pontos que fazem seu negócio ser encontrado, entendido, escolhido e lembrado.</p>
+        </div>
+
+        <div class="services">
+          <article class="service"><span class="service-num">01</span><h3>Presença Local</h3><p>Google Business Profile, páginas, mapas e ativos digitais para aumentar sua descoberta local.</p></article>
+          <article class="service"><span class="service-num">02</span><h3>Tráfego Pago</h3><p>Campanhas orientadas a aquisição, testes, criativos e otimização contínua.</p></article>
+          <article class="service"><span class="service-num">03</span><h3>SEO & GEO</h3><p>Conteúdo e estrutura para melhorar sua presença em buscadores e experiências de pesquisa com IA.</p></article>
+          <article class="service"><span class="service-num">04</span><h3>Sites & Landing Pages</h3><p>Páginas rápidas, responsivas e desenhadas para transformar visitas em ações.</p></article>
+          <article class="service"><span class="service-num">05</span><h3>Dados & Tagueamento</h3><p>Analytics, Tag Manager e eventos para enxergar o caminho entre campanha e resultado.</p></article>
+          <article class="service"><span class="service-num">06</span><h3>Funis & Automação</h3><p>WhatsApp, captura, nutrição e automações para reduzir perdas e acelerar o atendimento.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecossistema">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">02 / Ecossistema</div>
+            <h2>As peças trabalham juntas.</h2>
+          </div>
+          <p class="section-intro">Não tratamos cada canal como uma ilha. Conectamos aquisição, dados e relacionamento.</p>
+        </div>
+
+        <div class="ecosystem">
+          <div class="eco-main">
+            <div class="kicker">Arquitetura D.F.</div>
+            <h3>Uma estrutura digital para o negócio inteiro.</h3>
+            <p>Da descoberta no Google ao contato no WhatsApp, cada etapa recebe uma função clara.</p>
+            <div class="diagram">
+              <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+              <div class="node n1">Google</div><div class="node n2">Tráfego</div>
+              <div class="node n3">WhatsApp</div><div class="node n4">CRM</div>
+              <div class="core">D.F.</div>
+            </div>
+          </div>
+          <div class="eco-side">
+            <div class="eco-item"><span>AQUISIÇÃO</span><h4>Ser encontrado.</h4><p>Presença local + mídia paga + conteúdo para gerar demanda.</p></div>
+            <div class="eco-item"><span>CONVERSÃO</span><h4>Ser escolhido.</h4><p>Landing pages + prova + atendimento + automação para transformar intenção em oportunidade.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultados">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">03 / Performance</div>
+            <h2>Marketing que dá para medir.</h2>
+          </div>
+          <p class="section-intro">Acompanhamos sinais que importam: leads, conversões, custo, origem e evolução do funil.</p>
+        </div>
+
+        <div class="results-grid">
+          <div class="result-large">
+            <div class="kicker">VISÃO DE PERFORMANCE</div>
+            <h3>Menos achismo. Mais leitura do caminho até a venda.</h3>
+            <p>Uma camada de dados para entender o que está trazendo atenção, o que está convertendo e onde existem vazamentos.</p>
+            <div class="graph"></div>
+          </div>
+          <div class="metric-col">
+            <div class="metric"><small>Foco</small><strong>+L</strong><p>Mais oportunidades qualificadas entrando no funil.</p></div>
+            <div class="metric"><small>Visão</small><strong>360°</strong><p>Do primeiro contato ao relacionamento pós-venda.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">04 / Método</div>
+            <h2>Diagnóstico → estrutura → crescimento.</h2>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step"><span class="step-num">01 / DIAGNÓSTICO</span><h3>Entender</h3><p>Mapeamos negócio, público, canais, oferta e pontos de perda.</p></div>
+          <div class="step"><span class="step-num">02 / ESTRUTURA</span><h3>Construir</h3><p>Organizamos ativos, tracking, presença e jornada de conversão.</p></div>
+          <div class="step"><span class="step-num">03 / AQUISIÇÃO</span><h3>Atrair</h3><p>Colocamos as campanhas e canais para trabalhar a favor do objetivo.</p></div>
+          <div class="step"><span class="step-num">04 / OTIMIZAÇÃO</span><h3>Crescer</h3><p>Medimos, aprendemos, corrigimos e expandimos o que funciona.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div class="kicker">05 / Próximo passo</div>
+            <h2>Seu próximo cliente pode começar aqui.</h2>
+            <p>Conte para a D.F. onde seu negócio está hoje. A partir disso, desenhamos os próximos movimentos.</p>
+          </div>
+          <a class="btn primary" href="https://wa.me/5521999664090" target="_blank" rel="noopener">Falar no WhatsApp ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 D.F. Marketing Digital — Ecossistemas digitais para negócios locais.</div>
+      <div class="footer-links">
+        <a href="https://instagram.com/d.f._marketing_digital" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:delfiorfalcon@gmail.com">E-mail</a>
+        <a href="#inicio">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
